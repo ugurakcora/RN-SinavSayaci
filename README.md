@@ -2,11 +2,11 @@
 
 Türkiye'deki tüm önemli sınavlara kalan süreyi gösteren React Native uygulaması.
 
-**Desteklenen Sınavlar**: TYT, AYT, DGS, KPSS, ALES, YDS
+**Desteklenen Sınavlar**: TYT, AYT, DGS, KPSS, ALES, YDS, AGS
 
 ## 🚀 Özellikler
 
-- 📅 **Çoklu Sınav Desteği**: TYT, AYT, DGS, KPSS, ALES, YDS
+- 📅 **Çoklu Sınav Desteği**: TYT, AYT, DGS, KPSS, ALES, YDS, AGS
 - ⏰ **Gerçek Zamanlı Geri Sayım**: Gün, saat, dakika ve saniye olarak
 - 🎯 **Sınav Seçimi**: Kendi sınavlarınızı seçip takip edin
 - 💾 **Kalıcı Saklama**: Seçimleriniz kaydedilir
@@ -160,6 +160,13 @@ sinav-sayaci/
 - 📝 Soru Sayısı: 80 adet
 - 📖 Dersler: İngilizce, Almanca, Fransızca, Arapça
 
+### 🎖️ AGS (Akademi Giriş Sınavı)
+
+- 📅 Tarih: 15 Eylül 2026 (Henüz Kesin Değil)
+- ⏰ Süre: 110 dakika
+- 📝 Soru Sayısı: 80 adet
+- 📖 Dersler: Türkçe, Matematik, Tarih, Coğrafya, Eğitim Bilimleri, Mevzuat
+
 ## 💪 Motivasyon Mesajları
 
 Uygulama **20 özel motivasyon mesajı** içerir:
@@ -203,7 +210,7 @@ npx eslint src/
 
 ## 🎯 Gelecek Özellikler
 
-- [x] **Çoklu Sınav Desteği**: TYT, AYT, DGS, KPSS, ALES, YDS ✅
+- [x] **Çoklu Sınav Desteği**: TYT, AYT, DGS, KPSS, ALES, YDS, AGS ✅
 - [ ] **Bildirim Sistemi**: Sınav yaklaştığında uyarı
 - [ ] **Konu Programı**: Günlük çalışma planı
 - [ ] **İstatistikler**: Çalışma istatistikleri

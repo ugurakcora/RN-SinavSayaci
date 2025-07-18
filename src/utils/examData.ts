@@ -119,6 +119,29 @@ export const EXAM_DATA: ExamData[] = [
     icon: "🌍",
     description: "Yabancı dil yeterlilik belgelendirme sınavı",
   },
+  {
+    id: "ags",
+    shortName: "AGS",
+    name: "AGS (Akademi Giriş Sınavı)",
+    targetDate: new Date("2026-09-15T10:00:00"),
+    date: "15 Eylül 2026 (Henüz Kesin Değil)",
+    duration: 110,
+    questionCount: 80,
+    subjects: [
+      "Türkçe (Sözel Yetenek)",
+      "Matematik (Sayısal Yetenek)",
+      "Tarih",
+      "Coğrafya",
+      "Eğitimin Temel Kavramları ve Türk Millî Eğitim Sistemi",
+      "Mevzuat",
+    ],
+    color: {
+      primary: "#ff9068",
+      secondary: "#fd746c",
+    },
+    icon: "🎖️",
+    description: "Kolluk kuvvetleri akademileri giriş sınavı",
+  },
 ];
 
 export const getExamById = (id: string): ExamData | undefined => {
