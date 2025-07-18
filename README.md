@@ -1,15 +1,20 @@
-# 🎓 TYT Sınav Sayacı
+# 🎓 Sınav Sayacı
 
-**20 Haziran 2026** TYT sınavına kalan süreyi gösteren React Native uygulaması.
+Türkiye'deki tüm önemli sınavlara kalan süreyi gösteren React Native uygulaması.
+
+**Desteklenen Sınavlar**: TYT, AYT, DGS, KPSS, ALES, YDS
 
 ## 🚀 Özellikler
 
-- 📅 **Gerçek Zamanlı Geri Sayım**: Gün, saat, dakika ve saniye olarak
+- 📅 **Çoklu Sınav Desteği**: TYT, AYT, DGS, KPSS, ALES, YDS
+- ⏰ **Gerçek Zamanlı Geri Sayım**: Gün, saat, dakika ve saniye olarak
+- 🎯 **Sınav Seçimi**: Kendi sınavlarınızı seçip takip edin
+- 💾 **Kalıcı Saklama**: Seçimleriniz kaydedilir
 - 🎨 **Animasyonlu Splash Screen**: Profesyonel açılış ekranı
 - 💪 **Motivasyon Mesajları**: Günlük değişen ilham verici mesajlar
 - 🎯 **Akıllı Mesaj Sistemi**: Sınav tarihine göre kategorilere ayrılmış mesajlar
 - 🎨 **Modern UI**: Gradient arkaplan ve şık tasarım
-- 📊 **Sınav Bilgileri**: TYT süresi ve soru sayısı bilgileri
+- 📊 **Detaylı Sınav Bilgileri**: Her sınav için süre ve soru sayısı
 - 🔄 **Otomatik Güncelleme**: Her saniye otomatik güncellenir
 - 📱 **Responsive**: Tüm ekran boyutlarında uyumlu
 - 🎬 **Smooth Animasyonlar**: Motivasyon mesajları için geçiş efektleri
@@ -19,6 +24,7 @@
 - **React Native** with **TypeScript**
 - **Expo SDK 52**
 - **Context API** (State Management)
+- **AsyncStorage** (Data Persistence)
 - **Expo Linear Gradient**
 - **Animated API** (Animations)
 - **Custom Hook Pattern**
@@ -27,10 +33,10 @@
 
 ```bash
 # Projeyi klonlayın
-git clone <repo-url>
+git clone https://github.com/ugurakcora/RN-SinavSayaci.git
 
 # Proje dizinine gidin
-cd sinav-sayaci
+cd RN-SinavSayaci
 
 # Bağımlılıkları yükleyin
 npm install
@@ -54,6 +60,13 @@ npm run android
 npm run web
 ```
 
+### 📚 Sınav Seçimi
+
+- **İlk Açılış**: Hangi sınavları takip edeceğinizi seçin
+- **Çoklu Seçim**: Birden fazla sınav seçebilirsiniz
+- **Ayarlar**: İstediğiniz zaman sınav seçimlerinizi değiştirebilirsiniz
+- **Otomatik Kayıt**: Seçimleriniz otomatik olarak kaydedilir
+
 ### 💪 Motivasyon Mesajları
 
 - **Günlük Otomatik**: Her gün farklı bir mesaj
@@ -75,18 +88,22 @@ npm run web
 sinav-sayaci/
 ├── src/
 │   ├── components/
-│   │   ├── CountdownTimer.tsx    # Ana geri sayım ekranı
-│   │   └── SplashScreen.tsx      # Animasyonlu açılış ekranı
+│   │   ├── CountdownTimer.tsx       # Tekil geri sayım komponenti
+│   │   ├── MultiExamCountdown.tsx   # Çoklu sınav gösterim ekranı
+│   │   ├── ExamSelection.tsx        # Sınav seçim ekranı
+│   │   └── SplashScreen.tsx         # Animasyonlu açılış ekranı
 │   ├── context/
-│   │   └── CountdownContext.tsx  # State management
+│   │   └── CountdownContext.tsx     # State management
 │   ├── types/
-│   │   └── index.ts              # TypeScript tipleri
+│   │   └── index.ts                 # TypeScript tipleri
 │   └── utils/
-│       ├── dateUtils.ts          # Tarih hesaplama fonksiyonları
-│       └── motivationMessages.ts # Motivasyon mesajları sistemi
-├── App.tsx                       # Ana uygulama
-├── app.json                      # Expo konfigürasyonu
-└── package.json                  # Dependencies
+│       ├── dateUtils.ts             # Tarih hesaplama fonksiyonları
+│       ├── examData.ts              # Sınav bilgileri ve tarihleri
+│       ├── motivationMessages.ts    # Motivasyon mesajları sistemi
+│       └── storage.ts               # AsyncStorage utility'leri
+├── App.tsx                          # Ana uygulama
+├── app.json                         # Expo konfigürasyonu
+└── package.json                     # Dependencies
 ```
 
 ## 🎨 Tasarım
@@ -97,21 +114,57 @@ sinav-sayaci/
 - **Animasyonlar**: Smooth fade ve scale efektleri
 - **Responsive**: Tüm ekran boyutlarında uyumlu
 - **Motivasyon**: Özel tasarımlanmış mesaj kutusu
+- **Sınav Kartları**: Her sınav için özel renk ve ikon
 
 ## 📚 Sınav Bilgileri
 
-**TYT (Temel Yeterlilik Testi)**
+### 🎓 TYT (Temel Yeterlilik Testi)
 
 - 📅 Tarih: 20 Haziran 2026
 - ⏰ Süre: 165 dakika
 - 📝 Soru Sayısı: 120 adet
 - 📖 Dersler: Türkçe, Matematik, Fen Bilimleri, Sosyal Bilimler
 
+### 🎯 AYT (Alan Yeterlilik Testi)
+
+- 📅 Tarih: 21 Haziran 2026
+- ⏰ Süre: 180 dakika
+- 📝 Soru Sayısı: 80 adet
+- 📖 Dersler: Matematik, Fen Bilimleri, Sosyal Bilimler
+
+### 📊 DGS (Dikey Geçiş Sınavı)
+
+- 📅 Tarih: 6 Temmuz 2026
+- ⏰ Süre: 150 dakika
+- 📝 Soru Sayısı: 120 adet
+- 📖 Dersler: Sayısal, Sözel
+
+### 🏛️ KPSS (Kamu Personeli Seçme Sınavı)
+
+- 📅 Tarih: 13 Temmuz 2026
+- ⏰ Süre: 135 dakika
+- 📝 Soru Sayısı: 120 adet
+- 📖 Dersler: Genel Yetenek, Genel Kültür
+
+### 🎓 ALES (Akademik Personel ve Lisansüstü Eğitimi Giriş Sınavı)
+
+- 📅 Tarih: 12 Nisan 2026
+- ⏰ Süre: 150 dakika
+- 📝 Soru Sayısı: 80 adet
+- 📖 Dersler: Sayısal, Sözel
+
+### 🌍 YDS (Yabancı Dil Sınavı)
+
+- 📅 Tarih: 19 Nisan 2026
+- ⏰ Süre: 180 dakika
+- 📝 Soru Sayısı: 80 adet
+- 📖 Dersler: İngilizce, Almanca, Fransızca, Arapça
+
 ## 💪 Motivasyon Mesajları
 
 Uygulama **20 özel motivasyon mesajı** içerir:
 
-> "Hayallerinize giden yolda her adım önemlidir. TYT bu yolculuğun başlangıcı!"
+> "Hayallerinize giden yolda her adım önemlidir. Sınavlar bu yolculuğun başlangıcı!"
 
 > "Başarı tesadüf değildir. Hazırlık, sıkı çalışma ve hatalardan öğrenmektir."
 
@@ -136,25 +189,28 @@ npx eslint src/
 
 ### Ana Ekran
 
-- 🏠 **Geri Sayım**: Büyük ve net gösterim
+- 🏠 **Çoklu Geri Sayım**: Seçilen tüm sınavların gösterimi
 - 💪 **Motivasyon**: İnteraktif mesaj sistemi
-- 📊 **Bilgiler**: TYT detayları
+- 📊 **Detaylı Bilgiler**: Her sınav için özel bilgiler
+- ⚙️ **Sınav Ayarları**: Kolay sınav seçimi
 
 ### Özellikler
 
 - 🎬 **Splash Screen**: Profesyonel açılış animasyonu
-- 🔄 **Gerçek Zamanlı**: Her saniye güncellenen sayaç
+- 🔄 **Gerçek Zamanlı**: Her saniye güncellenen sayaçlar
 - 💫 **Animasyonlar**: Smooth geçiş efektleri
+- 🎯 **Sınav Seçimi**: Kullanıcı dostu seçim ekranı
 
 ## 🎯 Gelecek Özellikler
 
-- [ ] **Çoklu Sınav Desteği**: AYT, DGS, KPSS vb.
+- [x] **Çoklu Sınav Desteği**: TYT, AYT, DGS, KPSS, ALES, YDS ✅
 - [ ] **Bildirim Sistemi**: Sınav yaklaştığında uyarı
 - [ ] **Konu Programı**: Günlük çalışma planı
 - [ ] **İstatistikler**: Çalışma istatistikleri
 - [ ] **Karanlık Tema**: Dark mode desteği
 - [ ] **Sesli Bildirim**: Saat başı sesli hatırlatma
 - [ ] **Özel Mesajlar**: Kullanıcı tanımlı motivasyon mesajları
+- [ ] **Sınav Notları**: Hedef puan ve strateji notları
 
 ## 🤝 Katkıda Bulunma
 
@@ -178,4 +234,4 @@ Bu proje MIT lisansı altında lisanslanmıştır.
 
 **Başarılar dileriz! 🎓📚**
 
-> "Hayallerinize giden yolda her adım önemlidir. TYT sınavında başarılar!"
+> "Hayallerinize giden yolda her adım önemlidir. Hangi sınavı seçerseniz seçin, başarılar!"
